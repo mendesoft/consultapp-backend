@@ -1,5 +1,6 @@
 package xyz.mendesoft.service.impl;
 
+import xyz.mendesoft.exception.ModelNotFoundException;
 import xyz.mendesoft.repo.IGenericRepo;
 import xyz.mendesoft.service.ICRUD;
 
@@ -17,7 +18,7 @@ public abstract class CRUDImpl<T, ID> implements ICRUD<T, ID> {
 
     @Override
     public T listarPorId(ID id) throws Exception {
-        return getRepo().findById(id).orElse(null);
+        return getRepo().findById(id).orElseThrow(() -> new ModelNotFoundException("ID no encontrado: " + id));
     }
 
     @Override
