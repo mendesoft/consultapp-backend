@@ -44,7 +44,36 @@ public class Usuario {
 
 > El código perfecto no existe
 
-Java|Spring|Spring Boot
-|:---:|:---:|:---:
-Lenguaje de Programacion|Framework|Productividad
+
+### Script de SQL
+```sql
+#ROL
+INSERT INTO Rol (id_rol, nombre, descripcion) VALUES (1, 'ADMIN', 'Administrador');
+INSERT INTO Rol (id_rol, nombre, descripcion) VALUES (2, 'USER', 'Usuario');
+INSERT INTO Rol (id_rol, nombre, descripcion) VALUES (3, 'DBA', 'Admin de bd');
+
+#USUARIOS
+INSERT INTO usuario(id_usuario, username, password, enabled) values (1, 'admin@gmail.com', '$2a$10$ju20i95JTDkRa7Sua63JWOChSBc0MNFtG/6Sps2ahFFqN.HCCUMW.', '1');
+INSERT INTO usuario(id_usuario, username, password, enabled) values (2, 'usuario@gmail.com', '$2a$10$ju20i95JTDkRa7Sua63JWOChSBc0MNFtG/6Sps2ahFFqN.HCCUMW.', '1');
+
+#USUARIO_ROL
+INSERT INTO usuario_rol (id_usuario, id_rol) VALUES (1, 1);
+INSERT INTO usuario_rol (id_usuario, id_rol) VALUES (1, 3);
+INSERT INTO usuario_rol (id_usuario, id_rol) VALUES (2, 2);
+
+#MENU
+INSERT INTO menu(id_menu, nombre, icono, url) VALUES (8, 'Pacientes', 'accessibility', '/pages/paciente');
+
+#MENU_ROL
+INSERT INTO menu_rol (id_menu, id_rol) VALUES (8, 1);
+
+#PARA SACAR MENUS POR USERNAME
+            select m.* from menu_rol mr
+            inner join usuario_rol ur on ur.id_rol = mr.id_rol
+            inner join menu m on m.id_menu = mr.id_menu
+            inner join usuario u on u.id_usuario = ur.id_usuario
+            where u.username = :username
+
+
+```
 
