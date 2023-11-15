@@ -5,6 +5,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import xyz.mendesoft.dto.PacienteDTO;
 import xyz.mendesoft.model.Paciente;
 import xyz.mendesoft.service.IPacienteService;
 
@@ -21,8 +22,18 @@ public class PacienteController{
     }
 
     @GetMapping
-    public  ResponseEntity <List<Paciente>> listar() throws Exception {
-        return new ResponseEntity<>(service.listar(), HttpStatus.OK); //200
+    public  ResponseEntity <List<PacienteDTO>> listar() throws Exception {
+        List<PacienteDTO> lst = service.listar().stream().map(e -> {
+            PacienteDTO dto = new PacienteDTO();
+            dto.setIdPaciente(e.getIdPaciente());
+            dto.setNombres(e.getNombres());
+            dto.setApellidos(e.getApellidos());
+            dto.setEmail(e.getEmail());
+            dto.setDni(e.getDni());
+            return dto;
+
+        }).toList();
+        return new ResponseEntity<>(lst, HttpStatus.OK); //200
     }
 
     @GetMapping("/{id}")
