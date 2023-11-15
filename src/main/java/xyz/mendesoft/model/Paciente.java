@@ -22,14 +22,13 @@ public class Paciente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idPaciente;
 
-    @Size(min = 3, message = "Debe tener como minimo 3 caracteres")
+
     private String nombres;
 
-    @NotEmpty
-    @NotNull
+
     private String apellidos;
 
-    @Email
+
     private String email;
 
     @Column(unique = true, length = 8, nullable = true)

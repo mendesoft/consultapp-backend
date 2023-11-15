@@ -4,12 +4,12 @@ import java.util.List;
 
 public interface ICRUD <T, ID>{
 
-    List<T> listar() throws Exception;
-    T listarPorId(ID id) throws Exception;
+    List<T> listar() ;
+    T listarPorId(ID id);
 
-    T registrar(T t) throws Exception;
+    T registrar(T t) ;
 
-    T modificar(T t) throws Exception;
+    T modificar(T t, ID id) throws Exception;
 
     void eliminarPorId(ID id);
 

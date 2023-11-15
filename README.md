@@ -9,6 +9,9 @@
 6. JWT
 7. PostgreSQL
 8. Lombok
+9. ModelMapper
+10. Reflexión en Java
+11. Generar reportes con JasperReport
 
 [Documentación](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)
 
