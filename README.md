@@ -1,7 +1,7 @@
 # ConsultAPP
 ![texto alt](https://www.brainandlife.org/siteassets/online-exclusives/covid-19/telehealth-computer-main.jpg) 
 ### Temas desarrollados
-1. Spring Security
+1. ***Spring Security***
 2. Spring Hateos
 3. Spring Data JpaRepository
 4. Hibernate
@@ -28,7 +28,7 @@ public class Usuario {
     private String username;
 
     @Column(nullable = false, length = 60)
-    private String password;
+    private String password; //123 | Bcrypt
 
     @Column(nullable = false)
     private boolean enabled;
@@ -41,3 +41,10 @@ public class Usuario {
     private List<Rol> roles;
 }
 ```
+
+> El código perfecto no existe
+
+Java|Spring|Spring Boot
+|:---:|:---:|:---:
+Lenguaje de Programacion|Framework|Productividad
+
