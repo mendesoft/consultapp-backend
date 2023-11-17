@@ -27,6 +27,7 @@ public class MenuController {
 
     @PostMapping("/user")
     public ResponseEntity<List<MenuDTO>> getMenusByUser(@RequestBody String username) throws Exception {
+
         List<Menu> menus = service.getMenusByUsername(username);
         List<MenuDTO> menusDTO = menus.stream().map(e -> modelMapper.map(e, MenuDTO.class)).toList();
         return new ResponseEntity<>(menusDTO, HttpStatus.OK);
