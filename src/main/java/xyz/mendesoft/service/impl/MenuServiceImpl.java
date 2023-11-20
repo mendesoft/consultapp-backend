@@ -24,7 +24,6 @@ public class MenuServiceImpl extends CRUDImpl<Menu,Integer> implements IMenuServ
 
     @Override
     public List<Menu> getMenusByUsername(String username) {
-        System.out.println(repo.getMenusByUsername(username));
         return repo.getMenusByUsername(username);
     }
 }

@@ -4,6 +4,8 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -56,6 +58,13 @@ public class PacienteController{
         service.eliminarPorId(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT); //204
     }
+
+    //Paginacion
+      @GetMapping("/paginacion")
+      public ResponseEntity<Page<PacienteDTO>> paginacion(Pageable pageable){
+        Page<PacienteDTO> page = service.paginacion(pageable).map(p->mapper.map(p, PacienteDTO.class));
+        return new ResponseEntity<>(page,HttpStatus.OK);
+      }
 
     private PacienteDTO convertirToDto(Paciente obj){
         return mapper.map(obj, PacienteDTO.class);
