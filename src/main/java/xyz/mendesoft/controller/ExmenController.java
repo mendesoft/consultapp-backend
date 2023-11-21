@@ -20,7 +20,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/especialidades")
+@RequestMapping("/examenes")
 public class ExmenController {
 
     @Qualifier("defaultMapper")
