@@ -69,6 +69,7 @@ INSERT INTO menu(id_menu, nombre,icono, url) VALUES (1, 'Dashboard', 'home', '/p
 INSERT INTO menu(id_menu, nombre, icono, url) VALUES (5, 'Especialidades', 'star_rate', '/pages/especialidad');
 INSERT INTO menu(id_menu, nombre, icono, url) VALUES (7, 'Examenes', 'assignment', '/pages/examen');
 INSERT INTO menu(id_menu, nombre, icono, url) VALUES (8, 'Pacientes', 'accessibility', '/pages/paciente');
+INSERT INTO menu(id_menu, name, icon, url) VALUES (6, 'Medicos', 'healing', '/pages/medico');
 
 --MENU_ROL
 INSERT INTO menu_rol (id_menu, id_rol) VALUES (1, 1);
@@ -77,6 +78,8 @@ INSERT INTO menu_rol (id_menu, id_rol) VALUES (5, 1);
 INSERT INTO menu_rol (id_menu, id_rol) VALUES (7, 1);
 INSERT INTO menu_rol (id_menu, id_rol) VALUES (1, 2);
 INSERT INTO menu_rol (id_menu, id_rol) VALUES (5, 2);
+INSERT INTO menu_role (id_menu, id_role) VALUES (6, 1);
+INSERT INTO menu_role (id_menu, id_role) VALUES (6, 2);
 
 --PARA SACAR MENUS POR USERNAME
             select m.* from menu_rol mr
